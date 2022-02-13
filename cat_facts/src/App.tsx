@@ -1,25 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import cat from './assets/img/cat.png';
 import './App.css';
+import CatsFacts from './components/CatsFacts';
+import { Routes, Route, Link } from "react-router-dom";
+import Grid from '@mui/material/Grid';
+
+import About from './components/About';
 
 function App() {
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <h1>Welcome to Cat Facts!</h1>
+      <img
+        src={cat}
+        alt='catimage'
+      />  
+      <Grid container>
+        <Grid item xs={6}>
+        <Link to="/" >
+          Facts
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+        <Link to="/about" >About</Link>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item xs={12}>
+          <Routes>
+            <Route path="/" element={<CatsFacts />} />
+            <Route path="about" element={<About />} />
+          </Routes>
+        </Grid>
+      </Grid>
+
     </div>
+
   );
 }
 
